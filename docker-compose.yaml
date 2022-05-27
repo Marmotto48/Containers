@@ -8,6 +8,9 @@ services:
       - "3000:3000"
     networks:
       - mern-app
+    volumes:
+      - ./frontend/:/usr/src/app
+      - /usr/src/app/node_modules # don't take anything from this path 
   api-server:
     image: api-server
     build: ./backend/
@@ -15,9 +18,11 @@ services:
       - "5000:5000"
     networks:
       - mern-app
+    volumes:
+      - ./backend/:/usr/src/app
+      - /usr/src/app/node_modules # don't take anything from this path 
     depends_on:
       - mongodb
-
   mongodb:
     image: mongo
     ports:
