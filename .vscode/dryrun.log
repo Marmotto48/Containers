@@ -1,5 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/marmotto/Desktop/mern-stack-tracker'
-docker-compose up
-make: Leaving directory '/home/marmotto/Desktop/mern-stack-tracker'
- 
