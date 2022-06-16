@@ -1,13 +1,15 @@
-FROM node:14-slim
+FROM node:14-alpine
 
-WORKDIR /usr/src/app
+RUN mkdir /index
 
-COPY package.json ./
+WORKDIR /index
+
+COPY ./package.json /index/
 
 RUN npm install
 
-COPY . .
+COPY ./ /index/
 
-EXPOSE 5000
+EXPOSE 3001
 
-CMD ["npm", "start"]
+CMD ["npm","start"]

@@ -13,13 +13,15 @@ app.use(express.json());
 const exercise_controllers = require('./controllers/exercise.controllers');
 
 const uri = process.env.ATLAS_URI;
+const docker_connection = "mongodb://admin:password@mongodb"
+
 const options = {
 	useNewUrlParser: true,
 	// useCreateIndex: true,
 	useUnifiedTopology: true,
 };
 
-mongoose.connect(uri, options).catch((error) => console.log(error));
+mongoose.connect(docker_connection, options).catch((error) => console.log(error));
 
 const connection = mongoose.connection;
 connection.once('open', () => {
