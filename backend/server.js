@@ -14,6 +14,9 @@ const exercise_controllers = require('./controllers/exercise.controllers');
 
 const uri = process.env.ATLAS_URI;
 const docker_connection = "mongodb://admin:password@mongodb"
+const docker_connection_2 = "mongodb://AzureDiamond:hunter2@mongodb"
+const docker_connection_3 = "mongodb://admin:password@mongo:27017/"
+const CONNECTION_URL_docker = "mongodb://admin:password@mongodb"
 
 const options = {
 	useNewUrlParser: true,
@@ -21,11 +24,11 @@ const options = {
 	useUnifiedTopology: true,
 };
 
-mongoose.connect(docker_connection, options).catch((error) => console.log(error));
+mongoose.connect(docker_connection_3, options).catch((error) => console.log(error));
 
 const connection = mongoose.connection;
 connection.once('open', () => {
-	console.log('MongoDB database connection established successfully');
+	console.log('Database connection established successfully');
 });
 mongoose.connection.on('error', (err) => {
 	console.error('mongoose connection error', err);
